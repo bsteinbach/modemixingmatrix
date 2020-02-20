@@ -103,7 +103,7 @@ int main(int argc, char **argv)
 	assert(argc == 4);
 	fill_lft();
 	int i;
-	double w[WMAX];
+	double w[WMAX] = {0};
 	char *infn = argv[1];
 	char *outfn = argv[2];
 	int lmax = atoi(argv[3]);
@@ -129,6 +129,6 @@ int main(int argc, char **argv)
 	FILE *fo = fopen(outfn,"w");
 	output_matrix(fo,m,lmax);
 	fclose(fo);
-
+	free(m);
 	return 0;
 }
